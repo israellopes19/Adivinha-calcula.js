@@ -1,19 +1,33 @@
-var entrada = require ("readline-sync");
+var entrada = require('readline-sync');
+var secreto= Math.floor(Math.random()* 10);
+var escolha;
+var tentativa = 0;
+var desistir;
 
-var secreto;
-var num = 10;
-var tentativa = [];
+console.log(secreto)
 
-while(secreto!=num){
-    secreto = entrada.question('Escolhha o numero secreto de 0 a 100:');
+while (escolha != secreto){
+    escolha= entrada.question('escolha o número secreto de 0 a 100:');
     tentativa++
-    if(secreto == num){
+    if (escolha == secreto){
         console.log('Você acerto o número!!!');
-        console.log('Você tentou '+ tentativa);
-    }else if(secreto > num ){
-        console.log('Esse número é maior que o secreto.')
-    }else if(secreto < num){
-        console.log('ESse número é menor que o secreto.')
-    }
+        console.log('Você tentou' +tentativa);
+        break;
+    }else if (escolha > secreto){
+        console.log('Esse número é maior que o secreto');
 
+    }else if (escolha < secreto){
+        console.log('Esse número é menor que o secreto.');
+        
+    }
+    desistir = entrada.question('Desistir ? (S/N)').toUpperCase();
+    while (desistir != 'S'){
+        if (desistir == 'S'){
+            console.log('Você decidiu continuar')
+            break;
+        }else{
+            console.log('Digite algo válido')
+            desistir = entrada.question('Desistir? (S/N)').toUpperCase();
+        }
+    }
 }

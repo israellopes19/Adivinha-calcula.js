@@ -36,13 +36,4 @@ while (true){
         console.log('Operação inválida!!!');
       }
     
-
-
-
-
-
-
-
-
-
 }
